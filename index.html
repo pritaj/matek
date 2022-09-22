@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Randomszám</title>
+</head>
+
+    <style>
+        .flex-container{
+            display: flex;
+            border: 10px;
+            border-style: outset;
+            width: fit-content;
+        }
+        .flex-container > div {
+            background-color: white;
+            margin: 0.5px;
+            padding: 10px;
+        }
+        #randomszam,#randomszam2{
+            color: blue;
+            text-align: center;
+        }
+      
+
+    </style>
+
+<body>
+    <div class="flex-container">
+        <div><h1>Jó vagy fejszámolásba?</h1></div>
+        
+<form>
+    <input type="number" id="randomszam">
+    <p>+</p>
+    <input type="number" id="randomszam2">
+    <p>=</p>
+    <input type="number" id="eredmeny" name="eredmeny">
+    <input type="button" value="ellenőrzés" onclick="ellenorzes()">
+    <h2></h2>
+</form>
+    </div>
+
+    <script>
+        let v = Math.floor(Math.random()*100)
+        document.querySelector('#randomszam').value = v
+
+        let b = Math.floor(Math.random()*100)
+        document.querySelector('#randomszam2').value = b
+
+        function rand(a){
+            return Math.floor(Math.random()*a)
+        }
+
+        function ellenorzes(){
+            let ertek = document.getElementById('eredmeny').value
+
+            let h2 = document.querySelector('h2')
+                if(v+b == ertek){
+                h2.innerHTML= '👍'
+            }
+            else{
+                h2.innerHTML = '😢'
+            }
+        } 
+    </script>
+</body>
+</html>
